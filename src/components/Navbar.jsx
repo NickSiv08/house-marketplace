@@ -21,13 +21,25 @@ const Navbar = () => {
         <ul className='navbarListItems'>
           <li className='navbarListItem' onClick={() => navigate('/')}>
             <ExploreIcon
-              fill={pathMatchRoute('/') ? '#2c2c2c' : '#8f8f8f'}
+              fill={
+                pathMatchRoute('/')
+                  ? '#2c2c2c'
+                  : pathMatchRoute('/category/rent')
+                  ? '#2c2c2c'
+                  : pathMatchRoute('/category/sale')
+                  ? '#2c2c2c'
+                  : '#8f8f8f'
+              }
               width='36px'
               height='36px'
             />
             <p
               className={
                 pathMatchRoute('/')
+                  ? 'navbarListItemNameActive'
+                  : pathMatchRoute('/category/rent')
+                  ? 'navbarListItemNameActive'
+                  : pathMatchRoute('/category/sale')
                   ? 'navbarListItemNameActive'
                   : 'navbarListItemName'
               }
@@ -60,6 +72,8 @@ const Navbar = () => {
                   ? '#2c2c2c'
                   : pathMatchRoute('/sign-up')
                   ? '#2c2c2c'
+                  : pathMatchRoute('/forgot-password')
+                  ? '#2c2c2c'
                   : '#8f8f8f'
               }
               width='36px'
@@ -73,6 +87,8 @@ const Navbar = () => {
                   ? 'navbarListItemNameActive'
                   : pathMatchRoute('/sign-up')
                   ? 'navbarListItemNameActive'
+                  : pathMatchRoute('/forgot-password')
+                  ? 'navbarListItemActive'
                   : 'navbarListItemName'
               }
             >
